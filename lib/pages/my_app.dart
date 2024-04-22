@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventario/pages/home_page.dart';
+import 'package:inventario/pages/progress_page.dart';
 import 'package:inventario/pages/settings.dart';
 
 class MyApp extends StatefulWidget {
@@ -19,6 +20,7 @@ class _MyAppState extends State<MyApp> {
   final List<Widget> _children = [
     const HomePage(),
     const SettingsPage(),
+    const ProgressPage(),
   ];
 
   void _onItemTapped (int index){
@@ -32,7 +34,9 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: const Text("Regulare"),
       ),
-      body: _children[_currentIndex],
+        body: Center(
+          child: _children[_currentIndex],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
@@ -46,6 +50,12 @@ class _MyAppState extends State<MyApp> {
                 Icons.settings,
               ),
               label: 'Settings',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.bar_chart_rounded,
+              ),
+              label: 'Progresso',
             ),
           ],
           currentIndex: _currentIndex,
